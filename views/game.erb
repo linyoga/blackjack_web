@@ -2,8 +2,12 @@
 welcome <%= session[:player_name] %>
 <% if @game_over_button %>
 <p>Do you want to play again?
-<a href="/game" class = "btn btn-primary">Yes</a>
+<a href="/bet" class = "btn btn-primary">Yes</a>
 <a href="/game_over" class ="btn btn-warning">No</a>
+</p>
+<% elsif session[:player_money] == 0 %>
+<p>You are out of Money
+<a href="/game_over" class="btn btn-warning">Game Over</a>
 </p>
 <% end %>
 <div class ='well'>
@@ -33,7 +37,7 @@ welcome <%= session[:player_name] %>
    <% end %>
   
 </div>
-<p><%= session[:player_name] %> now your points are <%= total_value(session[:player_cards]) %></p>
+<p><%= session[:player_name] %> now your points are <%= total_value(session[:player_cards]) %> and you bet $<%= session[:player_bet]%> dollars</p>
 <p>
   <% if @stay_hit_button %>
   <form id="hit_form" action="/game/player/hit" method = "post">

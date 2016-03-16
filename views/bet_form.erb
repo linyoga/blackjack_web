@@ -1,0 +1,7 @@
+<form action="/bet" method ="post">
+  <legend>Make A Bet</legend>
+  <label>you have <%= session[:player_money] %> dollars, how much you want to bet?</label>
+  <input type="text"  placeholder ="you bet" name="betmoney"/>
+  <br/>
+  <input type="submit" value="Make a bet" class="btn" />
+</form>
